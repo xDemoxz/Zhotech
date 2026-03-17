@@ -25,7 +25,7 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Teléfono",
-    value: "+52 (55) 1234-5678",
+    value: "+57 301 6160852",
     href: "tel:+525512345678"
   },
   {
