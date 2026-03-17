@@ -5,33 +5,41 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Phone, Send, Linkedin, Twitter, Instagram } from "lucide-react"
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+  Linkedin,
+  Twitter,
+  Instagram
+} from "lucide-react"
 
 const contactInfo = [
   {
     icon: Mail,
     label: "Email",
     value: "contacto@zhotech.com",
-    href: "mailto:contacto@zhotech.com",
+    href: "mailto:contacto@zhotech.com"
   },
   {
     icon: Phone,
     label: "Teléfono",
     value: "+52 (55) 1234-5678",
-    href: "tel:+525512345678",
+    href: "tel:+525512345678"
   },
   {
     icon: MapPin,
     label: "Ubicación",
-    value: "Ciudad de México, México",
-    href: "#",
-  },
+    value: "Barranquiilla, Colombia",
+    href: "#"
+  }
 ]
 
 const socialLinks = [
   { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Instagram, href: "#", label: "Instagram" }
 ]
 
 export function Contact() {
@@ -39,7 +47,7 @@ export function Contact() {
     name: "",
     email: "",
     company: "",
-    message: "",
+    message: ""
   })
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -49,11 +57,14 @@ export function Contact() {
   }
 
   return (
-    <section id="contacto" className="relative py-24 md:py-32 overflow-hidden">
+    <section
+      id="contacto"
+      className="relative py-24 md:py-32 overflow-hidden"
+    >
       {/* Background */}
       <div className="absolute inset-0 cyber-grid opacity-20" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[var(--cyan-dim)] blur-[200px] rounded-full -translate-x-1/2 translate-y-1/2" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
@@ -71,10 +82,11 @@ export function Contact() {
             <span className="gradient-text-cyan">próximo proyecto</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Estamos listos para escuchar tus ideas y convertirlas en soluciones digitales innovadoras
+            Estamos listos para escuchar tus ideas y convertirlas en soluciones
+            digitales innovadoras
           </p>
         </motion.div>
-        
+
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
           {/* Contact Info */}
           <motion.div
@@ -85,12 +97,15 @@ export function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-foreground">Información de Contacto</h3>
+              <h3 className="text-2xl font-bold mb-4 text-foreground">
+                Información de Contacto
+              </h3>
               <p className="text-muted-foreground">
-                Agenda una reunión o envíanos un mensaje. Nuestro equipo responderá en menos de 24 horas.
+                Agenda una reunión o envíanos un mensaje. Nuestro equipo
+                responderá en menos de 24 horas.
               </p>
             </div>
-            
+
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <motion.a
@@ -106,16 +121,22 @@ export function Contact() {
                     <info.icon className="w-5 h-5 text-[var(--cyan)]" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">{info.label}</div>
-                    <div className="text-foreground font-medium">{info.value}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {info.label}
+                    </div>
+                    <div className="text-foreground font-medium">
+                      {info.value}
+                    </div>
                   </div>
                 </motion.a>
               ))}
             </div>
-            
+
             {/* Social Links */}
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-foreground">Síguenos</h4>
+              <h4 className="text-lg font-semibold mb-4 text-foreground">
+                Síguenos
+              </h4>
               <div className="flex gap-3">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -133,7 +154,7 @@ export function Contact() {
                 ))}
               </div>
             </div>
-            
+
             {/* Decorative element */}
             <div className="hidden lg:block pt-8">
               <div className="relative w-64 h-64">
@@ -146,7 +167,7 @@ export function Contact() {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
@@ -154,13 +175,21 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-8 glow-border-cyan">
-              <h3 className="text-2xl font-bold mb-6 text-foreground">Envíanos un mensaje</h3>
-              
+            <form
+              onSubmit={handleSubmit}
+              className="glass-card rounded-2xl p-8 glow-border-cyan"
+            >
+              <h3 className="text-2xl font-bold mb-6 text-foreground">
+                Envíanos un mensaje
+              </h3>
+
               <div className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-foreground mb-2"
+                    >
                       Nombre completo
                     </label>
                     <Input
@@ -168,13 +197,18 @@ export function Contact() {
                       type="text"
                       placeholder="Tu nombre"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       className="bg-[var(--muted)] border-[var(--border)] focus:border-[var(--cyan)] focus:ring-[var(--cyan)]/20 text-foreground placeholder:text-muted-foreground"
                       required
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-foreground mb-2"
+                    >
                       Email
                     </label>
                     <Input
@@ -182,41 +216,54 @@ export function Contact() {
                       type="email"
                       placeholder="tu@email.com"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       className="bg-[var(--muted)] border-[var(--border)] focus:border-[var(--cyan)] focus:ring-[var(--cyan)]/20 text-foreground placeholder:text-muted-foreground"
                       required
                     />
                   </div>
                 </div>
-                
+
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                    Empresa <span className="text-muted-foreground">(opcional)</span>
+                  <label
+                    htmlFor="company"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
+                    Empresa{" "}
+                    <span className="text-muted-foreground">(opcional)</span>
                   </label>
                   <Input
                     id="company"
                     type="text"
                     placeholder="Nombre de tu empresa"
                     value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, company: e.target.value })
+                    }
                     className="bg-[var(--muted)] border-[var(--border)] focus:border-[var(--cyan)] focus:ring-[var(--cyan)]/20 text-foreground placeholder:text-muted-foreground"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
                     Cuéntanos sobre tu proyecto
                   </label>
                   <Textarea
                     id="message"
                     placeholder="Describe brevemente tu proyecto o necesidad..."
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     className="bg-[var(--muted)] border-[var(--border)] focus:border-[var(--cyan)] focus:ring-[var(--cyan)]/20 text-foreground placeholder:text-muted-foreground min-h-[140px] resize-none"
                     required
                   />
                 </div>
-                
+
                 <Button
                   type="submit"
                   size="lg"
@@ -226,7 +273,7 @@ export function Contact() {
                   <Send className="ml-2 w-5 h-5" />
                 </Button>
               </div>
-              
+
               <p className="mt-4 text-sm text-muted-foreground text-center">
                 Responderemos a tu mensaje en menos de 24 horas
               </p>
